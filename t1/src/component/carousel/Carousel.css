@@ -1,0 +1,61 @@
+.continor {
+    height: 100px;
+    width: 200px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 0;
+    position: relative;
+}
+
+.item {
+    height: 100px;
+    width: 200px;
+    background-color: rgb(250, 211, 163);
+    clear: both;
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+.list {
+    display: flex;
+    
+}
+.not {
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+    position: absolute;
+    color: #000;
+    background-color: khaki;
+    top: 50%;
+    transform: translate(0,-50%);
+    z-index: 10;
+}
+.right {
+    right: 0;
+}
+.left {
+    left: 0;
+}
+.bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 30px;
+}
+.slide {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    flex-grow: 0;
+    margin-right: 2px;
+    z-index: 10;
+}
+.slide:hover{
+    border: #fff;
+    border-width: 1px;
+    background-color: pink;
+}
