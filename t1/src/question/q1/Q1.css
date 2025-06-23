@@ -1,0 +1,13 @@
+.q1_content {
+    height: 0px;
+    width: 500px;
+    overflow: hidden;
+    transition: 1s;
+}
+.but:hover{
+    border-color: aqua;
+}
+
+.but:hover+.q1_content {
+    height: auto;
+}
