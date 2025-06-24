@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import style from "./Cart.module.css";
 
 function Cart() {
@@ -8,32 +8,34 @@ function Cart() {
   let svgRef = useRef(null);
   const [startPosition, setStartPosition] = useState(null);
   const [endPosition, setEndPosition] = useState({x:200,y:300})
-  useEffect(() => {
-    if (isVisiable) {
-      let svg = svgRef.current.getBoundingClientRect();
-      let but = butRef.current.getBoundingClientRect();
-
-    }
-  }, [isVisiable]);
 
   function handleClick() {
     let but = butRef.current.getBoundingClientRect();
     let x = but.x
     let y = but.y
-    console.log(but)
     setStartPosition({
       x: x + (but.width)/2,
       y: y,
     });
-    console.log(x + (but.width)/2)
-    console.log(y)
     setIsVisiable(true);
   }
   const handleTransitionEnd = () => {
     console.log(svgRef.current.getBoundingClientRect())
-    //setIsVisiable(false);
+    setIsVisiable(false);
     
   };
+
+  const handleAnimationStart = () =>{
+    let cart = cartRef.current.getBoundingClientRect()
+    let svg = svgRef.current.getBoundingClientRect()
+    let y = cart.top - svg.top
+    y = y>0?y:-y
+    let x = svg.left - cart.left - (cart.width)/2
+    x = x>0?x:-x
+    setEndPosition({
+        x,y
+    })
+  }
   return (
     <div className={style.cart}>
       <div className={style.top}>
@@ -47,6 +49,7 @@ function Cart() {
               "--y": `${endPosition.y}px`,
             }}
             onAnimationEnd={handleTransitionEnd}
+            onAnimationStart={handleAnimationStart}
             ref={svgRef}
           >
             <div className={style.add}></div>
