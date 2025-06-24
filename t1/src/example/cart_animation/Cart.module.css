@@ -1,0 +1,61 @@
+.cart {
+    height: 400px;
+    width: 200px;
+}
+.top {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+.cart .bottom {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.add {
+    background-repeat: no-repeat;
+    background: url("../../assets/add.svg");
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    animation: moveX 0.8s linear;
+    
+}   
+.cart_bottom {
+    background: url("../../assets/cart.svg");
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+}
+.addWarpper {
+    left: var(--left);
+    top: var(--top);
+    border-radius: 10px 10px;
+    border-width: 2px;
+    border-color: black; 
+    border-style: dashed;
+    animation: moveY 0.8s cubic-bezier(0.5,-0.5,1,1);
+    position: absolute;
+}
+.buttonWarpper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+@keyframes moveY {
+    to{
+        transform: translateY(var(--y));
+    }
+}
+@keyframes moveX {
+    to{
+        transform: translateX(var(--x));
+    }
+}

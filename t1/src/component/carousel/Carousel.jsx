@@ -14,14 +14,14 @@ export default function Carousel() {
   let slideWithClone = [slide[slide.length-1],...slide,slide[0]]
   const totalSlides = slideWithClone.length;
   useEffect(() => {
-    console.log(isTransition)
+    //console.log(isTransition)
     if (!isTransition) {
         setTimeout(() => {
             setIsTranstion(true);
         }, 50);    
     }
   }, [isTransition]);
-  console.log(`start${currentIndex}`)
+  //console.log(`start${currentIndex}`)
   function moveToRight() {
     if (!isTransition) return
     setCurrentIndex(currentIndex=>currentIndex + 1);
